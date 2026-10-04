@@ -1,0 +1,361 @@
+:root {
+  --bg: #efe8d8;
+  --card: #fbf7ee;
+  --text: #2b2a26;
+  --muted: #7a735f;
+  --accent: #2f5d50;
+  --accent-hover: #244a40;
+  --gold: #c19a3d;
+  --danger: #a63d40;
+  --success: #3f7d4e;
+  --track: #d8cfb8;
+  --border: #cfc4a8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 3px double var(--gold);
+}
+
+.head {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.set-section,
+.name-section,
+.date-section {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr) 90px 90px;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 8px;
+  margin-bottom: 12px;
+}
+
+.goal-label,
+.label-of-book,
+.date-label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+input {
+  grid-column: 2;
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-bottom: 2px solid var(--gold);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--card);
+  color: var(--text);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #fff;
+}
+
+button {
+  padding: 9px 12px;
+  border: none;
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--card);
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.set-btn {
+  grid-column: 3;
+}
+
+.rest-goal {
+  grid-column: 4;
+  background: var(--gold);
+  color: #2b2a26;
+}
+
+.rest-goal:hover {
+  background: #a9822c;
+}
+
+.add-btn {
+  grid-column: 3 / -1;
+}
+
+.set-msg {
+  grid-column: 1 / -1;
+  margin: 10px 0 0;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+}
+
+.progress-bar {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 14px;
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+  background: var(--track);
+}
+
+.progress-bar::-webkit-progress-bar {
+  background: var(--track);
+  border-radius: 7px;
+}
+
+.progress-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  border-radius: 7px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar::-moz-progress-bar {
+  background: var(--accent);
+  border-radius: 7px;
+}
+
+.bar-percenatge {
+  margin: 6px 0 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+.done-msg {
+  text-align: center;
+  color: var(--success);
+  font-weight: bold;
+}
+
+.edit,
+.finish-title,
+.want-title {
+  margin: 30px 0 12px;
+  text-align: center;
+  color: var(--accent);
+  font-weight: normal;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.edit::after,
+.finish-title::after,
+.want-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 8px auto 0;
+  background: var(--gold);
+}
+
+.head-of-list,
+.finish-list,
+.want-list {
+  padding: 0;
+  margin: 0;
+  list-style-position: inside;
+}
+
+.list-of-books {
+  background: var(--card);
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--accent);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+
+.list-of-books:hover {
+  box-shadow: 0 2px 8px rgba(60, 50, 20, 0.15);
+}
+
+.finish-list .list-of-books {
+  border-left-color: var(--gold);
+}
+
+/* Name, author and date on one line */
+.book-name,
+.book-author,
+.book-date {
+  display: inline;
+}
+
+.book-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.book-author {
+  font-size: 1rem;
+  color: var(--text);
+  margin-left: 8px;
+}
+
+.book-author::before {
+  content: "by ";
+  font-style: italic;
+  color: var(--muted);
+}
+
+.book-date {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+.book-date::before {
+  content: "· ";
+}
+
+.button-group {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+}
+
+.button-group button {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  margin-right: 6px;
+}
+
+.delete-btn {
+  background: var(--danger);
+}
+
+.delete-btn:hover {
+  background: #8a2f32;
+}
+
+.book-name,
+.book-author,
+.book-date {
+  unicode-bidi: isolate;
+}
+
+/* Phones */
+@media (max-width: 600px) {
+
+  body {
+    padding: 20px 14px;
+  }
+
+  .head {
+    font-size: 1.7rem;
+  }
+
+  /* Stack each form row: label, then input, then buttons */
+  .set-section,
+  .name-section,
+  .date-section {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .goal-label,
+  .label-of-book,
+  .date-label {
+    grid-column: 1 / -1;
+  }
+
+  /* Every input: same width and height */
+  input {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: 40px;
+    font-size: 16px;
+    /* stops iPhones from zooming in on tap */
+  }
+
+  input[type="date"] {
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    text-align: left;
+  }
+
+  input[type="date"]::-webkit-date-and-time-value {
+    text-align: left;
+  }
+
+  .set-btn {
+    grid-column: 1;
+  }
+
+  .rest-goal {
+    grid-column: 2;
+  }
+
+  .add-btn {
+    grid-column: 1 / -1;
+  }
+
+  /* Smaller titles and book rows */
+  .edit,
+  .finish-title,
+  .want-title {
+    font-size: 1.4rem;
+  }
+
+  .list-of-books {
+    padding: 8px 10px;
+  }
+
+  .book-name {
+    font-size: 1.05rem;
+  }
+
+  .book-author {
+    font-size: 0.95rem;
+  }
+
+  /* Bigger tap targets for the buttons that open on click */
+  .button-group button {
+    padding: 8px 12px;
+    margin-bottom: 4px;
+  }
+}
